@@ -33,7 +33,7 @@ h1 {
     margin-bottom: 0;
 }
 
-#operation{
+#operationContainer{
     display: flex;
     font-size: 3rem;
     column-gap: 20px;

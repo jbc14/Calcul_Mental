@@ -12,10 +12,13 @@ rulesBtn.addEventListener('click', () => {
 });
 
 const letsGoBtn = document.getElementById('letsgoBtn');
+const operationElement = document.getElementById('operation');
+const timerElement = document.getElementById('timer');
+
+let result = 0;
 
 function updateTimer() {
-  let timer = 20;
-  const timerElement = document.getElementById('timer');
+  let timer = 5;
   timerElement.innerHTML = timer;
 
   setInterval(() => {
@@ -25,16 +28,16 @@ function updateTimer() {
       timerElement.innerHTML = timer;
     }
     if (timer === 0) {
-      timerElement.innerHTML = 'Done !';
+      timerElement.style.fontSize = '3rem';
+      timerElement.innerHTML = `Le résultat était ${result}`;
       letsGoBtn.disabled = false;
     }
   }, 1000);
 }
 
 letsGoBtn.addEventListener('click', () => {
-  const firstNumber = document.getElementById('firstNumber');
-  const operator = document.getElementById('operator');
-  const secondNumber = document.getElementById('secondNumber');
+  document.getElementById('result').innerHTML = ``;
+  timerElement.style.fontSize = '5rem';
 
   letsGoBtn.disabled = true;
 
@@ -50,9 +53,23 @@ letsGoBtn.addEventListener('click', () => {
   }
   const randomOperator = getRandomOperator(randomOperatorNumber);
 
-  firstNumber.innerHTML = randomNumber;
-  secondNumber.innerHTML = secondRandomNumber;
-  operator.innerHTML = randomOperator;
+  operationElement.innerHTML = `${randomNumber} ${randomOperator} ${secondRandomNumber} = `;
+
+  function getResult() {
+    if (randomOperator == '+') {
+      return randomNumber + secondRandomNumber;
+    }
+    if (randomOperator == '-') {
+      return randomNumber - secondRandomNumber;
+    }
+    if (randomOperator == '*') {
+      return randomNumber * secondRandomNumber;
+    }
+    if (randomOperator == '/') {
+      return randomNumber / secondRandomNumber;
+    }
+  }
 
   updateTimer();
+  result = getResult(randomNumber, secondRandomNumber, randomOperator);
 });
