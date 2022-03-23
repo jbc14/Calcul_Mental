@@ -9,9 +9,30 @@
   </head>
   <body>
     <h1>Calcul Mental</h1>
-    <p class="rules">
-      Règles du jeu : Vous avez 20 secondes pour écrire un nombre se répprochant
-      le plus possible du résultat. A chaque résultat sa nouvelle opération.
+
+    <div id="operation">
+      Opération :
+      <div id="firstNumber"></div>
+      <div id="operator"></div>
+      <div id="secondNumber"></div>
+      =
+      <input type="text" name="result" id="resultInput" />
+    </div>
+
+    <div id="timer">20</div>
+
+    <input id="letsgoBtn" type="button" value="C'est parti !" />
+
+    <input
+      id="rulesBtn"
+      class="shown"
+      type="button"
+      value="Afficher les règles du jeu"
+    />
+    <p style="display: none" id="rules">
+      Règles du jeu : <br /><br />
+      Vous avez 20 secondes pour écrire un nombre se rapprochant le plus
+      possible du résultat. A chaque résultat sa nouvelle opération.
       <br />Certaines opérations vous sembleront impossibles à réaliser mais pas
       d'inquiétude, vous devez seulement vous rapprocher du résultat ! <br />
       <br />
@@ -22,10 +43,9 @@
       marquez 3 points. <br />
       Si votre réponse est le résultat exact, vous marquez 10 points. <br />
       Si votre réponse est en dessous de la marge de 50%, le jeu s'arrête !
+      <br /><br />
       Bonne chance !
     </p>
-
-    <div id="timer">20</div>
 
     <script src="script.js"></script>
   </body>
