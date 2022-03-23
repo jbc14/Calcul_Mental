@@ -15,7 +15,7 @@ const letsGoBtn = document.getElementById('letsgoBtn');
 const operationElement = document.getElementById('operation');
 const timerElement = document.getElementById('timer');
 
-let result = 0;
+let result = Math.floor(Math.random() * 100) + 1;
 
 function updateTimer() {
   let timer = 5;
@@ -53,20 +53,20 @@ letsGoBtn.addEventListener('click', () => {
   }
   const randomOperator = getRandomOperator(randomOperatorNumber);
 
-  operationElement.innerHTML = `${randomNumber} ${randomOperator} ${secondRandomNumber} = `;
+  operationElement.innerHTML = `${result} ${randomOperator} ${secondRandomNumber} = `;
 
   function getResult() {
     if (randomOperator == '+') {
-      return randomNumber + secondRandomNumber;
+      return result + secondRandomNumber;
     }
     if (randomOperator == '-') {
-      return randomNumber - secondRandomNumber;
+      return result - secondRandomNumber;
     }
     if (randomOperator == '*') {
-      return randomNumber * secondRandomNumber;
+      return result * secondRandomNumber;
     }
     if (randomOperator == '/') {
-      return randomNumber / secondRandomNumber;
+      return result / secondRandomNumber;
     }
   }
 
